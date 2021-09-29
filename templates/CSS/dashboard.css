@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700;900&display=swap');
+
+/* Global -------------- */
+:root {
+    --color-escura: #363f5f;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f2f5;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: min(90vw, 800px); /*Procura o menor valor */
+
+    margin: auto;
+}
+
+h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-escura);
+
+    font-weight: normal;
+}
+html {
+    font-size: 93.75%; /*15px, o total e 16px*/
+}
+
+
+.sr-only { /*Tricks para esconder Balanço e Transaçao, usado para leitor de tela*/
+    position: absolute;
+    width: 1px;
+    margin: -1;
+    padding: 0;
+
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+/* ----------------------------HEADER --------------- */
+header {
+    background-color: #2d4a22;
+    padding: 2rem 0 10rem;
+    text-align: center; /*alinha ao centro do eixo X e Y*/
+}
+
+#logo {
+    color: white;
+    font-weight: 100; /*levesa da fonte, deixa mais grossa ou fina*/
+
+}
+
+/* ---------------------Balance -------------- */
+#balance {
+    margin-top: -5rem;
+}
+
+#balance h2 {
+    margin-top: 0;
+    color: white;
+}
+
+
+/*-----------------------CARDS ----------------- */
+.card {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+
+    margin-bottom: 2rem;
+}
+
+.card h3 {
+    font-weight: normal;
+    font-size: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card p {
+    font-size: 24px;
+    line-height: 30px;
+    margin-top: 18px;
+}
+.card.total {
+    background-color: #49aa26;
+    color: white;
+
+}
+
+
+/*----------------------Links e Buttons ----------- */
+a {
+    color: #49aa26;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #3dd705;
+}
+.button.new { /*mesma caixa tenha os duas class*/
+    display: inline-block; /*pra aplicar margim e ficar no tamanho do elemento*/
+    margin-bottom: 15px;
+
+}
+/*------------------TABLE ---------------*/
+
+#data-table {
+    display: block;
+    width: 100%;
+    border-spacing: 0 10px;
+
+    overflow-x: auto; /*vai deixar a tabela deslizar para os lado*/
+}
+table tbody tr {
+    opacity: 0.6;
+}
+
+table tbody tr:hover {
+    opacity: 1;
+}
+
+table thead tr th {
+    background-color: white;
+    opacity: 1;
+    font-weight: normal;
+    padding: 16px 26px;
+    height: 60px;
+    text-align: left;
+    color:black;
+    font-size: 18px;
+    
+}
+table td {
+    background-color: white;
+    padding: 12px 22px;
+}
+
+/* Pagr o primeiro filho de td e tr*/
+table thead tr th:first-child, table tbody tr td:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+table thead tr th:last-child, table tbody tr td:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+
+td.description {
+    color: var(--color-escura)
+}
+td.income {
+    color: #12a454;
+}
+td.expense {
+    color: #e92929;
+}
+/*------------------------FOOTER -------------- */
+footer {
+    text-align: center;
+    padding-top: 50px;
+    opacity: 0.6;
+}
+
+/*-----------Responsive----------*/
+/*focar nesse*/
+@media (min-width: 800px) { /*maior  ou igual a 800px*/
+    html {
+        font-size: 87.5%;
+    }
+    #balance {
+        display: grid; /*flex horizontal ou vertical, grid e ambos*/
+        grid-template-columns: repeat(3, 1fr); /*mesma coisa que 1fr 1fr 1fr*/ 
+        /*pega todas as tag primaria e o tamanho da box divide em fração*/
+        /* pode usar pixel, a qunadida de elementos e a quantidade que sera dividido*/
+        gap: 30px; /*espaço entre as caixas*/
+    }
+}
